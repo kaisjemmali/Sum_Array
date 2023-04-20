@@ -1,0 +1,38 @@
+ALGORITHM Sum_Array
+VAR
+    i,j:INTEGER:=0;
+    set1:Array_OF INTEGER[a];
+    set2:Array_OF INTEGER[b];
+    set:Array_OF[a+b],
+    sum_commun,sum_distinct:INTEGER:=0;
+    found:BOOLEAN;
+BEGIN
+    Write("type the length of set1")
+    Read(a)
+    Write("type the length of set2")
+    Read(b)
+    FOR i FROM 0 TO n1-1 STEP DO
+        Read(set1[i])
+    END_FOR
+    FOR j FROM 0 TO n2-1 STEP DO
+        Read(set2[j])
+    END_FOR
+
+set:= concat(set1,set2)
+
+FOR k FROM 0 TO set.length-1 STEP  DO
+    found:=false
+    FOR l FROM 0 TO set.length-1 STEP   DO
+        IF (set[k]=set[l] AND k<>l) THEN
+            found:=true
+            sum_commun=sum_commun+set[k]
+        END_IF
+    END_FOR
+    IF (set[k]<>set[l] AND k<>l) THEN
+        found:=false
+        sum_distinct:=sum_distinct+set[k]
+    END_IF
+END_FOR
+Write("The Sum of distinct is:",sum_distinct)
+Write("The Sum of commun is:",sum_commun)
+END
